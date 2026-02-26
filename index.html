@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tower of Shimon - P2P Battle</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=M+PLUS+Rounded+1c:wght@400;700&display=swap"
+        rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css?v=20260227_03">
+
+    <!-- Dependencies -->
+    <script src="js/poly-decomp.min.js"></script>
+    <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+</head>
+
+<body>
+    <div id="game-container">
+        <!-- The Game Canvas -->
+        <div id="canvas-wrapper">
+            <div id="cloud-layer"></div>
+        </div>
+
+        <!-- UI Overlay -->
+        <div id="ui-layer">
+            <!-- HUD -->
+            <div id="turn-hud" class="hidden">
+                <span id="turn-count" class="badge">Turn 1</span>
+                <span id="turn-status">あなたのターン</span>
+            </div>
+
+            <!-- Emote Panel -->
+            <div id="emote-panel" class="hidden">
+                <button class="emote-btn" data-emote="👍">👍</button>
+                <button class="emote-btn" data-emote="😂">😂</button>
+                <button class="emote-btn" data-emote="😢">😢</button>
+                <button class="emote-btn" data-emote="😡">😡</button>
+                <button class="emote-btn" data-emote="🙏">🙏</button>
+            </div>
+
+            <!-- Floating Emote Display Container -->
+            <div id="emote-display-container"></div>
+
+            <!-- Floating Emote Display Container -->
+            <div id="emote-display-container"></div>
+
+            <div id="connection-panel" class="panel">
+                <h1 class="cute-title">Tower of<br>Shimon</h1>
+                <h2>オンライン対戦 (P2P)</h2>
+                <div class="input-group">
+                    <label for="my-id">あなたのID:</label>
+                    <input type="text" id="my-id" readonly placeholder="生成中...">
+                    <button id="copy-id-btn" class="btn small-btn">コピー</button>
+                </div>
+
+                <div class="divider">または</div>
+
+                <div class="input-group">
+                    <label for="friend-id">相手のIDを入力して接続:</label>
+                    <input type="text" id="friend-id" placeholder="相手のIDを入力">
+                    <button id="connect-btn" class="btn primary-btn">対戦を申し込む</button>
+                    <button id="solo-btn" class="btn solo-btn">ソロで遊ぶ</button>
+                </div>
+
+                <p id="status-msg" class="status">通信待機中...</p>
+            </div>
+
+            <div id="game-over-panel" class="panel hidden">
+                <div id="result-win-lose" class="result-win-lose"></div>
+                <h2 id="result-title">勝負あり！</h2>
+                <p id="result-desc"></p>
+                <div class="result-actions" style="margin-top: 20px;">
+                    <button id="rematch-btn" class="btn primary-btn">もう一度遊ぶ</button>
+                    <button id="back-title-btn" class="btn"
+                        style="background:#ddd; color:#333; margin-top:10px; width:100%; padding:10px;">タイトルに戻る</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Entry Point -->
+        <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
