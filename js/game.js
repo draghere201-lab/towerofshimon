@@ -367,7 +367,8 @@ export class GameManager {
                 wireframes: false, // Turn off debug wireframes to show sprites
                 background: 'transparent',
                 hasBounds: true,
-                showAngleIndicator: false
+                showAngleIndicator: false,
+                pixelRatio: window.devicePixelRatio || 1
             }
         });
 
